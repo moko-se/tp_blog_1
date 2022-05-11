@@ -1,0 +1,20 @@
+{# /template/home.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %} View page {% endblock %}
+{% block content %} 
+
+    {% for item in post %}
+        {% if item.slug == param %}
+            <article class="banner">
+                <div class="container">
+                    <h3 class="display-6">{{item.title}}</h3>
+                    <p class="lead">{{item.content}}</p>
+                    <p class="lead">{{item.category}}</p>
+                </div>
+            </article>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

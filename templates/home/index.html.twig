@@ -1,0 +1,31 @@
+{# /template/home.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %} Home page {% endblock %}
+{% block content %} 
+    <article class="banner">
+        <div class="container">
+            <h2 class="display-4">Hello my blog </h2>
+            <p class="lead">Hello world and welcom to my blog!</p>
+        </div>
+    </article>
+
+    <section class="banner">
+        <div class="container">
+            <h2 class="display-5">Actualité</h2>
+            
+            {% for item in posts %}
+                <article class="banner">
+                    <div class="container">
+                        <h3 class="display-6">
+                            <a href="{{path('app_view', {slug:item.slug})}}" class="link-primary">{{item.title}}</a>
+                        </h3>
+                        <p class="lead">{{item.description}}</p>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}
